@@ -8,11 +8,11 @@ export const addProductToCart = (cartProducts: CartItem[], clickedProduct: CartI
   if (alreadyAdded) {
     return cartProducts.map(product =>
       (product.id === clickedProduct.id) ? 
-        { ...product, quantity: (product.quantity || 0) + 1 } 
+        { ...product, quantity: (product.quantity || 0) + (clickedProduct.quantity || 1) } 
         : product
     );        
   } else {
-    return [...cartProducts, { ...clickedProduct, quantity: 1 }];
+    return [...cartProducts, { ...clickedProduct, quantity: clickedProduct.quantity || 1 }];
   }
 };
 

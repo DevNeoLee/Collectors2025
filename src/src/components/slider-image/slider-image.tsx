@@ -21,9 +21,7 @@ const SliderImage: React.FC<SliderImageProps> = ({ src, index, text }) => {
     <div className={sliderStyle.sliderItem}>
       <img src={src} alt="slide-img" className={sliderStyle.image} />
       <div className={sliderStyle.overlay}></div>
-      <Link to={`/shop/${MAP_LINK[index]}`}>
-        <span className={sliderStyle.text}>{text}</span>
-      </Link>
+      <span className={sliderStyle.text}>{text}</span>
     </div>
   );
 };

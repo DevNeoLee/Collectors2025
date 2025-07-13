@@ -39,16 +39,7 @@
     background: none;
     border: none;
     outline: none;
-    transition: 0.2s;
-    &:hover{
-        background: rgba(0,0,0,0.356);
-        .i {
-            color: white;
-            transform: scale(1.1);
-            transition: 0.2s;
-        }
-    }
-
+    transition: none;
 }
 
 #goLeft {
@@ -63,7 +54,6 @@
 
 .i {
     color: black;
-
 }
 
 

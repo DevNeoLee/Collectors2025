@@ -16,17 +16,30 @@ const CheckoutPage: React.FC = () => {
   }, []);
 
   return (
-    <div className={checkoutpageStyle.checkoutPage}>
-      <h1>Checkout</h1>
-      <div className={checkoutpageStyle.items}>
-        {cartProducts.map((product) => (
-          <CheckoutProduct key={product.id} product={product} />
-        ))}
+    <div className={checkoutpageStyle.checkoutPageOuter}>
+      <h1 className={checkoutpageStyle.pageTitle}>Checkout</h1>
+      <div className={checkoutpageStyle.checkoutGrid}>
+        <div className={checkoutpageStyle.productListSection}>
+          {cartProducts.length === 0 ? (
+            <div className={checkoutpageStyle.emptyCartMsg}>Your cart is empty.</div>
+          ) : (
+            cartProducts.map((product) => (
+              <div className={checkoutpageStyle.productCard} key={product.id}>
+                <CheckoutProduct product={product} />
+              </div>
+            ))
+          )}
+        </div>
+        <div className={checkoutpageStyle.summarySection}>
+          <div className={checkoutpageStyle.summaryCard}>
+            <div className={checkoutpageStyle.totalRow}>
+              <span className={checkoutpageStyle.totalLabel}>Total</span>
+              <span className={checkoutpageStyle.totalValue}>${cartTotal}</span>
+            </div>
+            <CheckoutForm amount={cartTotal} />
+          </div>
+        </div>
       </div>
-      <div className={checkoutpageStyle.total}>
-        <h2>Total: ${cartTotal}</h2>
-      </div>
-      <CheckoutForm amount={cartTotal} />
     </div>
   );
 };

@@ -7,10 +7,10 @@
     // box-shadow: 0 1px 2px 0 rgba(133,133,133,0.3), 0 1px 3px 0 rgba(133,133,133,0.3); 
     padding: 8px 12px;
     margin: 1.6rem 0px 0px 0px;
-    width: 10rem;
+    width: 8rem;
     position: fixed;
     top: 17px;
-    right: 5px;
+    right: 15px;
     justify-content: space-between;
     align-items: center;
     background-color: white;
@@ -21,12 +21,12 @@
 
     &:hover {
     transition: 0.2s;
-    box-shadow: 5px 5px 10px hsl(0, 0%, 62%);
+    box-shadow: 3px 3px 6px hsl(0, 0%, 62%);
     transform: translateY(-1px);
     // box-shadow: 0 1px 3px 0 rgba(133, 133, 133, 0.5), 0 1px 4px 0 rgba(133, 133, 133, 0.5); 
 
         .icon, .image, .cart {
-            transform: scale(1.1);
+            transform: scale(1.05);
             transition: 0.35s;
         }
     }
@@ -50,14 +50,14 @@
 
 .image {
     position: relative;
-    max-width: 2.8rem;
-    max-height: 2.8rem;
+    max-width: 2.2rem;
+    max-height: 2.2rem;
     width: auto;
     height: auto;
     opacity: 1;
     // background-color: orange;
     // margin-bottom: 0.2rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,21 +65,21 @@
 
 .number {
     position: absolute; 
-    padding: 0.2rem;
+    padding: 0.25rem;
     border-radius: 50%;
-    right: -5px;
-    top: -5px;
+    right: -7px;
+    top: -7px;
     z-index: 3;  
     text-align: center;
     color: white;
     background-color: #ff6b6b;
-    min-width: 1.5rem;
-    height: 1.5rem;
+    min-width: 2.1rem;
+    height: 2.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 1.15rem;
+    font-weight: 900;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
     @media (prefers-color-scheme: dark) {

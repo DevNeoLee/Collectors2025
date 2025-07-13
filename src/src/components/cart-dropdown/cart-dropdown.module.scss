@@ -6,19 +6,18 @@
     top: 95px;
     right: 1.2rem;
     z-index: 300;
-    // border: 1px solid $primary-color;
-    background-color: white;
+    background: rgba(251, 251, 251, 0.98);
+    color: #222;
     min-height: 320px;
     max-height: 450px;
-    // display: flex;
     flex-direction: column;
     text-align: center;
     overflow: scroll;
-    width: 24rem;
+    width: 20rem;
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 4px 12px rgba(133,133,133,0.3), 0 2px 6px rgba(133,133,133,0.2);
-    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 24px rgba(40,40,60,0.18), 0 2px 8px rgba(133,133,133,0.18);
+    border: 1.5px solid #e0e0e0;
 
     @media (prefers-color-scheme: dark) {
         background-color: #3a3a3a;
@@ -27,7 +26,6 @@
         border: 1px solid #5a5a5a;
     }
 
-    // 모바일 스타일
     @media (max-width: 900px) {
         position: relative;
         top: auto;
@@ -38,7 +36,7 @@
         max-height: 300px;
         margin-top: 1rem;
         border-radius: 8px;
-        z-index: 1; // 모바일에서는 상대적 위치이므로 낮은 z-index
+        z-index: 1;
     }
 }
 
@@ -134,5 +132,13 @@
             background-color: #4a4a4a;
             color: #f0f0f0;
         }
+    }
+}
+
+// 텍스트, 합계, 버튼 등도 진한 색상으로 유지
+.body, .total, .header h3 {
+    color: #222;
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
     }
 }

@@ -1,0 +1,18 @@
+.signup {
+    background-color: rgba(211,211,211, 0.3);
+    margin: 15px;
+    padding: 35px 80px;
+    z-index: 4;
+    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+}
+
+.error {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ffcdd2;
+    font-size: 14px;
+    text-align: center;
+}

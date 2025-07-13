@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600px"
+   height="200px"
+   viewBox="0 0 600 200"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="logoBoxMain.svg"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.90906307"
+     inkscape:cx="192.64527"
+     inkscape:cy="19.011619"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="855"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     showguides="false"
+     inkscape:lockguides="true" />
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:120px;line-height:1.35;font-family:sans-serif;white-space:pre;inline-size:490.268;fill:#000000;fill-opacity:1;stroke:none"
+       x="62.857143"
+       y="105.71429"
+       id="text25"
+       transform="translate(11.428571,22.857143)"><tspan
+         style="visibility:hidden"
+         x="62.857143"
+         y="105.71429"><tspan
+           dx="0 83.90625 72.890625 33.046875 33.046875 71.484375 62.578125 47.34375 72.890625 51.328125"
+           style="font-size:120px">Collectors</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:120px;line-height:1.25;font-family:sans-serif;fill:#0000ff"
+       x="5.7142873"
+       y="139.99998"
+       id="text29"><tspan
+         sodipodi:role="line"
+         id="tspan27"
+         x="5.7142873"
+         y="139.99998"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:120px;font-family:Palatino;-inkscape-font-specification:'Palatino Bold';fill:#0000d0;fill-opacity:1">C   llectors</tspan></text>
+    <polygon
+       points="425.2,294.2 764.8,200.4 425.2,106.7 85.6,200.4 "
+       id="polygon10"
+       style="fill:#f10000;fill-opacity:1"
+       transform="matrix(0.11676526,0,0,0.12321904,90.351413,66.073953)" />
+    <polygon
+       points="420.5,401.4 107,314.8 107,658.8 420.5,745.4 "
+       id="polygon12"
+       style="fill:#f10000;fill-opacity:1"
+       transform="matrix(0.11676526,0,0,0.12321904,90.351413,66.073953)" />
+    <polygon
+       points="420.5,391.6 420.5,302.7 172.5,234.2 72.6,206.6 72.6,295.5 "
+       id="polygon14"
+       style="fill:#f10000;fill-opacity:1"
+       transform="matrix(0.11676526,0,0,0.12321904,90.351413,66.073953)" />
+    <polygon
+       points="743.5,314.8 429.9,401.4 429.9,745.4 743.5,658.8 "
+       id="polygon16"
+       style="fill:#f10000;fill-opacity:1"
+       transform="matrix(0.11676526,0,0,0.12321904,90.351413,66.073953)" />
+    <polygon
+       points="429.9,391.6 777.8,295.5 777.8,206.6 677.9,234.2 429.9,302.7 "
+       id="polygon18"
+       style="fill:#f10000;fill-opacity:1"
+       transform="matrix(0.11676526,0,0,0.12321904,90.351413,66.073953)" />
+    <text
+       xml:space="preserve"
+       style="font-size:31.4811px;line-height:1.25;font-family:sans-serif;fill:#0000d0;fill-opacity:1;stroke-width:1.01658"
+       x="13.720804"
+       y="188.40387"
+       id="text1448"
+       transform="scale(1.0165676,0.9837024)"><tspan
+         sodipodi:role="line"
+         id="tspan1446"
+         x="13.720804"
+         y="188.40387"
+         style="font-size:31.4811px;fill:#0000d0;fill-opacity:1;stroke-width:1.01658">OWN COLLECTION OF FINE MOVIES</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+@import '../../App';
+
+.image {
+    width: 100vw;
+    height: auto;
+    // padding: 20px;
+    // background-color: brown;
+    position: relative;
+    z-index: 4;
+}
+
+.text {
+    position: absolute;
+    top: 35%;
+    // transform: translateY(-20%);
+    height: 8vw;
+    width: 40vw;
+    right: 27%;
+    z-index: 5;
+    color: white;
+    // background: white;
+    padding: 5px;
+    font-size: 3vw;
+    // font-family: 'Shadows Into Light', cursive;
+    // background: rgb(2, 210, 247);
+    background-color: rgba(11, 0, 154, 0.8);
+    // border: 0.3rem solid white;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 8px white;
+
+    &:hover {
+        box-shadow: 8px 8px 13px white;
+        cursor: pointer;
+        transition: 0.35s;
+        background-color: rgba(11, 0, 154, 0.9);
+
+    }
+}
+

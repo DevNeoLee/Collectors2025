@@ -1,0 +1,178 @@
+.container {
+    background-color: white;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #3a3a3a;
+        color: #e0e0e0;
+    }
+}
+
+.checkoutProduct {
+    display: flex;
+    padding: 1.2rem 4rem 1rem 1.8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    min-width: 16rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    display: block;
+    max-width:15rem;
+    max-height:15rem;
+    width: auto;
+    height: auto;
+}
+
+.detail {
+    width: 100%;
+}
+
+.titlePrice {
+    display: flex;
+    // background-color: lime;
+    justify-content: space-between;
+    padding-bottom: 0rem;
+}
+
+.titlePrice h2 {
+    height: 6rem;
+    text-align: center;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.price {
+    font-size: 1.5rem;
+    // padding: 1rem;
+    position: relative;
+    text-align: center;
+    display: flex;
+    min-width: 4rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.priceText {
+    font-size: 1rem;
+    position: absolute;
+    top: -70%;
+}
+
+.description {
+    width: 100%;
+    height: 4rem;
+    // background-color: maaroon;
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid #5a5a5a;
+        background-color: #4a4a4a;
+        color: #e0e0e0;
+    }
+}
+
+.quantityDelete{
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quantityText {
+    font-size: 1rem;
+    display: flex;
+
+    @media (prefers-color-scheme: dark) {
+        color: #e0e0e0;
+    }
+}
+
+.quantity {
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.icon {
+    cursor: pointer;
+    color:rgb(3, 68, 245);
+    margin: 0.3rem 1rem 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (prefers-color-scheme: dark) {
+        color: #7c8cff;
+    }
+}
+
+.delete {
+    font-size: 1rem;
+    display: flex;
+
+    @media (prefers-color-scheme: dark) {
+        color: #e0e0e0;
+    }
+}
+
+.x {
+    cursor: pointer;
+    margin: 0rem 1rem;
+    color:rgb(3, 68, 245);
+
+    @media (prefers-color-scheme: dark) {
+        color: #ff6b6b;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+     .checkoutProduct {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .checkoutProduct {
+        flex-direction: column;
+        margin: 0rem auto;
+        text-align: center;
+    }
+
+    .price {
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .titlePrice {
+        display: block;
+    }
+
+    .titlePrice h2{
+        width: 100%;
+        text-align: center;
+    }
+    .checkoutProduct {
+        display: flex;
+        padding: 1.2rem 4rem 1rem 1.8rem;
+        align-items: center;
+        justify-content: center;
+    }
+}

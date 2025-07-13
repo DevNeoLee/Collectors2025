@@ -1,0 +1,108 @@
+.card {
+    // border: 0.1rem solid black;
+    // margin: 0.2rem;
+    padding: 1rem;
+    // flex: 1 2 calc(25% - 1rem);
+    // width: 25rem;
+    max-width: 19rem;
+    min-width: 16rem;
+    // width: minmax(10rem, 16rem);
+    margin: 0.8rem auto;
+    text-align: center;
+    background: white;
+    border-radius: 0.2rem;
+    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+
+    &:hover {
+        box-shadow: 5px 5px 10px hsl(0, 0%, 62%);
+        transition: 0.35s
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background: #3a3a3a;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        color: #e0e0e0;
+
+        &:hover {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.productLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: #e0e0e0;
+
+        &:hover {
+            color: #e0e0e0;
+        }
+    }
+}
+
+.title {
+    margin: 0px auto;
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.imageContainer {
+    background-color: white;
+    height: auto;
+    max-width: 15rem;
+    min-width: 15rem;
+    min-height: 15rem;
+    padding: 0.1rem auto;
+    margin: 0.1rem auto;
+    display:flex;
+    align-items: center;
+
+    img {
+        max-height: 15rem;
+        max-width: 15rem;
+        // height: auto;
+        // width: auto;
+        margin: 0px auto;
+        background: white;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #3a3a3a;
+        
+        img {
+            background: #3a3a3a;
+        }
+    }
+}
+
+.price {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+

@@ -1,0 +1,30 @@
+.menuCard {
+    background-color: bisque; 
+    min-width: 35rem;
+    max-width: 50rem;
+    height: 200px;
+    border: 1px solid lightseagreen;
+    padding: 10px;
+    margin: 2rem auto;
+    text-align: center;
+    // width: calc( (100% / 4) - 15px );
+
+}
+
+.content {
+    padding: 20px;
+    margin: 5px;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.button {
+    background-color: blue;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    // right: 0;
+}

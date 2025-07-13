@@ -1,0 +1,201 @@
+.main {
+    background-color: rgba(211,211,211, 0.3);
+    padding: 2rem 6rem;
+    min-height: 50vh;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: rgba(58, 58, 58, 0.3);
+        color: #e0e0e0;
+    }
+}
+
+.main h1 {
+    margin-left: 0rem;
+    color:rgb(46, 46, 46);
+    padding: 1rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.header {
+    min-height: 50vh;
+}
+
+.products {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    padding: 0rem auto;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: lime;
+    min-height: 25vh;
+    font-size: 1.2rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #e0e0e0;
+    }
+}
+
+.summaryContainer {
+    display: flex;
+    justify-content: flex-end;
+    background-color: lightgray;
+    padding: 2rem;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #4a4a4a;
+        color: #e0e0e0;
+    }
+}
+
+.summary {
+    float: right;
+}
+
+.total {
+    // float: right;
+    font-size: 1.3rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.cartCount {
+    font-weight:800;
+    padding: 0rem 0.7rem;
+    font-size: 1.6rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.totalNumber {
+    font-size: 2rem;
+    padding: 1rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #f0f0f0;
+    }
+}
+
+.stripeButton {
+    float: right;
+    padding-top: 1rem;
+}
+
+.testCreditcard {
+    background-color: yellow;
+    font-size: 0.9rem;
+    padding: 1rem;
+    color: rgb(197, 2, 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+    text-align: center;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #4a4a00;
+        color: #ff8a80;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+.testWarning {
+    padding: 1rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: #e0e0e0;
+    }
+}
+
+.testNumber {
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.699);
+    font-size: 1.4rem;
+
+    @media (prefers-color-scheme: dark) {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+// 체크아웃 페이지 전체 레이아웃
+.checkoutPage {
+    @media (prefers-color-scheme: dark) {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+    }
+}
+
+.items {
+    @media (prefers-color-scheme: dark) {
+        background-color: #3a3a3a;
+    }
+}
+
+// 구분선 스타일
+hr {
+    @media (prefers-color-scheme: dark) {
+        border-color: #5a5a5a;
+        background-color: #5a5a5a;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .main {
+        padding: 0rem 0rem;
+    }
+    
+    .summaryContainer {
+        display: flex;
+        justify-content: center;
+        // background-color: rgb(214, 61, 61);
+        padding: 2rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .main {
+        padding: 0.1rem 0.1rem;
+    }
+
+    .summaryContainer {
+        display: block;
+        justify-content: center;
+        // background-color: rgb(61, 214, 99);
+        padding: 2rem;
+    }
+
+    .total {
+        font-size: 1rem;
+        display: block;
+        text-align: center;
+        align-items: center;
+    }
+
+    .summary {
+        float: none;
+        font-size: 1rem;
+    }
+
+    .stripeButton {
+        float: none;
+        display: flex;
+        padding-top: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

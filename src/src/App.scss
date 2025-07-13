@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Open+Sans&family=Shadows+Into+Light&display=swap');
+
+$primary-color: #0b009a;
+$accent-color: #fe3a98;
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    // font-family: 'Shadows Into Light', cursive;
+}
+
+.wholePage {
+    min-height: 100vh;
+}
+
+.fontGroup {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Shadows Into Light', cursive;
+}

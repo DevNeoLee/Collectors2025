@@ -2,61 +2,60 @@
 @use '../../styles/_glass.scss' as glass;
 
 .login {
-    @include glass.glass(20px, rgba(255,255,255,0.15), 20px, 1px);
-    padding: 3.5rem 3rem;
-    margin: 0;
-    max-width: 420px;
-    width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(40,40,60,0.10);
+  padding: 3.5rem 3rem;
+  margin: 0;
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    @media (prefers-color-scheme: dark) {
+      color: #f0f0f0;
+    }
+  }
+
+  form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-    position: relative;
-    z-index: 10;
+    gap: 1.75rem;
+    width: 100%;
+  }
 
+  @media (prefers-color-scheme: dark) {
+    background: #232a3a;
+    color: #e0e0e0;
+  }
+
+  @media (max-width: 600px) {
+    padding: 2.5rem 2rem;
+    margin: 0;
+    gap: 1.5rem;
+    max-width: 380px;
     h1 {
-        font-size: 2.25rem;
-        font-weight: 600;
-        margin: 0 0 0.5rem 0;
-        color: #333;
-
-        @media (prefers-color-scheme: dark) {
-            color: #f0f0f0;
-        }
+      font-size: 2rem;
     }
+  }
 
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.75rem;
-        width: 100%;
+  @media (max-width: 480px) {
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+    max-width: 340px;
+    h1 {
+      font-size: 1.75rem;
     }
-
-    @media (prefers-color-scheme: dark) {
-        @include glass.glass(20px, rgba(40,40,60,0.15), 20px, 1px);
-        color: #e0e0e0;
-    }
-
-    @media (max-width: 600px) {
-        padding: 2.5rem 2rem;
-        margin: 0;
-        gap: 1.5rem;
-        max-width: 380px;
-
-        h1 {
-            font-size: 2rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        padding: 2rem 1.5rem;
-        gap: 1.25rem;
-        max-width: 340px;
-
-        h1 {
-            font-size: 1.75rem;
-        }
-    }
+  }
 }
 
 .error {

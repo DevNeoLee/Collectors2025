@@ -331,14 +331,14 @@ a {
 
 .menudown {
     display: none;
-    position: fixed;
+    position: fixed !important;
     right: 0;
     top: 70px;
     width: 100vw;
     max-width: 280px;
     background: rgba(40,40,60,0.95);
     color: white;
-    z-index: 100;
+    z-index: 99999 !important;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;

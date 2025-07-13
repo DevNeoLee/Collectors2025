@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { onSnapshot } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -19,6 +19,15 @@ const Loginpage = lazy(() => import('./pages/loginpage/loginpage.tsx'));
 const Shoppage = lazy(() => import('./pages/shoppage/shoppage.tsx'));
 const CheckoutPage = lazy(() => import('./pages/checkoutpage/checkoutpage.tsx'));
 const Productpage = lazy(() => import('./pages/productpage/productpage.tsx'));
+
+// ScrollToTop 컴포넌트 추가
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -66,6 +75,7 @@ const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <Header />
+      <ScrollToTop />
       <div className="wholePage">
         <Suspense fallback={<LoadingSpinner size="large" text="Loading page..." />}>
           <Routes>

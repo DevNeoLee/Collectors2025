@@ -51,6 +51,10 @@ const App: React.FC = () => {
     return () => unsubscribeFromAuth();
   }, [dispatch]);
 
+  useEffect(() => {
+    document.title = 'Collectors App - Premium Movie & Media Collections';
+  }, []);
+
   console.log('[App] currentUser:', currentUser);
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import checkoutpageStyle from './checkoutpage.module.scss';
@@ -10,6 +10,10 @@ import CheckoutForm from './CheckoutForm';
 const CheckoutPage: React.FC = () => {
   const cartProducts = useSelector((state: RootState) => selectCartProducts(state));
   const cartTotal = useSelector((state: RootState) => selectCartTotal(state));
+
+  useEffect(() => {
+    document.title = 'Checkout - Collectors App';
+  }, []);
 
   return (
     <div className={checkoutpageStyle.checkoutPage}>

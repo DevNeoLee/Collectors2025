@@ -3,39 +3,39 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import categorypageStyle from './categorypage.module.scss';
-import Product from '../../components/product/product';
-import { selectCategory } from '../../redux/shop/shop-selectors';
+import CategoryItem from '../../components/categoryItem/categoryItem';
+import { selectCollections } from '../../redux/shop/shop-selectors';
 import type { RootState } from '../../types/common';
 
 const CategoryPage: React.FC = () => {
-  const { categoryId } = useParams<{ categoryId: string }>();
-  const category = useSelector((state: RootState) => 
-    selectCategory(categoryId || '')(state)
-  );
+  const { category } = useParams<{ category: string }>();
+  const collections = useSelector((state: RootState) => selectCollections(state));
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [categoryId]);
+    if (category && collections[category]) {
+      const categoryTitle = collections[category].title;
+      document.title = `${categoryTitle} - Collectors App`;
+    } else {
+      document.title = 'Category - Collectors App';
+    }
+  }, [category, collections]);
 
-  if (!category) {
+  if (!category || !collections[category]) {
     return (
-      <div className={categorypageStyle.categorypage}>
-        <div className={categorypageStyle.empty}>
-          Category not found
-        </div>
+      <div className={categorypageStyle.categoryPage}>
+        <h2>Category not found</h2>
       </div>
     );
   }
 
+  const { items, title } = collections[category];
+
   return (
-    <div className={categorypageStyle.categorypage}>
-      <div className={categorypageStyle.titleContainer}>
-        <h1 className={categorypageStyle.title}>{category.title}</h1>
-        <p className={categorypageStyle.subtitle}>{category.title} Collection</p>
-      </div>
-      <div className={categorypageStyle.productContainer}>
-        {category.items.map((item) => (
-          <Product key={item.id} item={item} />
+    <div className={categorypageStyle.categoryPage}>
+      <h1 className={categorypageStyle.title}>{title}</h1>
+      <div className={categorypageStyle.items}>
+        {items.map((item) => (
+          <CategoryItem key={item.id} item={item} />
         ))}
       </div>
     </div>

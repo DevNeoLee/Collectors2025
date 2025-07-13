@@ -1,23 +1,21 @@
-import React, { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 import shoppageStyle from './shoppage.module.scss';
-import Productpage from '../productpage/productpage';
+import CategoryPage from '../categorypage/categorypage';
 
-const Collections = lazy(() => import('../../components/collections/collections'));
-const Categorypage = lazy(() => import('../categorypage/categorypage'));
+const ShopPage: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Shop - Collectors App';
+  }, []);
 
-const Shoppage: React.FC = () => {
   return (
-    <div className={shoppageStyle.container}>
-      <Suspense fallback={<div>...loading</div>}>
-        <Routes>
-          <Route path="/" element={<Collections />} />   
-          <Route path="/:categoryId" element={<Categorypage />} />  
-        </Routes>
-      </Suspense>
+    <div className={shoppageStyle.shopPage}>
+      <Routes>
+        <Route path=":category" element={<CategoryPage />} />
+      </Routes>
     </div>
   );
 };
 
-export default Shoppage; 
+export default ShopPage; 

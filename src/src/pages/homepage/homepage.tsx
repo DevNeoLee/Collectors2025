@@ -12,6 +12,10 @@ const Homepage: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location]);
 
+  useEffect(() => {
+    document.title = 'Collectors App - Premium Movie & Media Collections';
+  }, []);
+
   return (
     <div className={homepageStyles.homepage}>
       <Slider />

@@ -49,8 +49,13 @@ const Productpage: React.FC = () => {
   useEffect(() => {
     if (product) {
       setSelectedImage(product.imageUrl);
+      document.title = `${product.name} - Collectors App`;
+    } else if (productId) {
+      document.title = 'Product Not Found - Collectors App';
+    } else {
+      document.title = 'Product - Collectors App';
     }
-  }, [product]);
+  }, [product, productId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

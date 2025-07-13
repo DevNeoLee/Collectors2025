@@ -17,7 +17,7 @@ $card-bg-dark: #3a3a3a;
   flex-direction: column;
 
   &:hover {
-    transform: translateY(-1px) scale(1.012);
+    transform: translateY(-1px) scale(1.005);
     box-shadow: 0 4px 12px rgba(40, 40, 60, 0.13);
   }
 
@@ -27,7 +27,7 @@ $card-bg-dark: #3a3a3a;
 
     &:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.32);
-      transform: translateY(-1px) scale(1.012);
+      transform: translateY(-1px) scale(1.005);
     }
   }
 }

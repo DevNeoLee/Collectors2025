@@ -55,11 +55,10 @@ const CategoryPage: React.FC = () => {
         </div>
         
         <div className={categorypageStyle.titleSection}>
-          <h1 className={categorypageStyle.title}>{title}</h1>
+          <h1 className={categorypageStyle.title}>
+            {title} <span className={categorypageStyle.itemCount}>({items.length})</span>
+          </h1>
           {subtitle && <p className={categorypageStyle.subtitle}>{subtitle}</p>}
-          <div className={categorypageStyle.productCount}>
-            {items.length} {items.length === 1 ? 'item' : 'items'} available
-          </div>
         </div>
       </div>
 

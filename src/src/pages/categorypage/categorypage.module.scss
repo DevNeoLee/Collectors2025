@@ -19,24 +19,22 @@
 
 .header {
   max-width: 1200px;
-  margin: 0 auto 2rem auto;
-  padding: 2rem;
+  margin: 0 auto 1rem auto;
+  padding: 1.1rem 1rem 1.1rem 1rem;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  @include glass.glass(14px, rgba(255,255,255,0.22), 22px, 1.5px);
-
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  @include glass.glass(10px, rgba(255,255,255,0.18), 16px, 1.2px);
   @media (prefers-color-scheme: dark) {
-    background: rgba(45, 45, 45, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(45, 45, 45, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   }
-
   @media (max-width: 768px) {
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -94,30 +92,51 @@
 
 .titleSection {
   text-align: center;
+  margin-bottom: 0.1rem;
+  padding: 0;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, $primary-color, $accent-color);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
+  margin-bottom: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  background: none;
+  color: #184a7c;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
   @media (prefers-color-scheme: dark) {
-    background: linear-gradient(135deg, #7c8cff, #fe3a98);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #7c8cff;
   }
-
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.05rem;
   }
-
   @media (max-width: 480px) {
-    font-size: 1.5rem;
+    font-size: 0.92rem;
+  }
+}
+
+.itemCount {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #2952e3;
+  margin-left: 0.15rem;
+  opacity: 1;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  @media (prefers-color-scheme: dark) {
+    color: #7c8cff;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.92rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.82rem;
   }
 }
 

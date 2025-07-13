@@ -37,14 +37,20 @@ const App: React.FC = () => {
               console.log('[onSnapshot] userData:', userData);
               dispatch(setCurrentUser({
                 ...userAuth,
-                ...userData
+                ...userData,
+                createdAt: userData.createdAt || new Date()
               }));
             }
           });
         }
       }
 
-      dispatch(setCurrentUser(userAuth));
+      dispatch(setCurrentUser(userAuth ? {
+        displayName: userAuth.displayName,
+        email: userAuth.email,
+        uid: userAuth.uid,
+        createdAt: new Date()
+      } : null));
       console.log('[dispatch setCurrentUser] userAuth:', userAuth);
     });
 

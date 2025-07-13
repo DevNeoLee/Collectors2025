@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FaArrowLeft, FaShoppingCart, FaHeart } from 'react-icons/fa';
 
 import productpageStyle from './productpage.module.scss';
-import FormButton from '../../components/form-button/form-button';
 import { addProduct } from '../../redux/cart/cart-slice';
 import { selectCollections } from '../../redux/shop/shop-selectors';
 import type { RootState, ShopItem } from '../../types/common';

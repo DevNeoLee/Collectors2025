@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FaArrowLeft, FaHome } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 
 import categorypageStyle from './categorypage.module.scss';
 import CategoryItem from '../../components/categoryItem/categoryItem';

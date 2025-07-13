@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import shoppageStyle from './shoppage.module.scss';
 import CategoryPage from '../categorypage/categorypage';

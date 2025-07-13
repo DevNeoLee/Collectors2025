@@ -2,7 +2,7 @@
 export interface UserData {
   displayName: string | null;
   email: string | null;
-  createdAt: Date;
+  createdAt?: Date;
   [key: string]: any;
 }
 

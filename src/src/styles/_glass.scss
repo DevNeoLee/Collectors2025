@@ -1,0 +1,15 @@
+// Glassmorphism 스타일 믹스인
+@mixin glass($blur: 12px, $bg: rgba(255,255,255,0.18), $radius: 18px, $border: 1px) {
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: #fff solid $border;
+  border-color: rgba(255,255,255,0.25);
+}
+
+// Glass 유틸리티 클래스
+.glass {
+  @include glass();
+} 

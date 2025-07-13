@@ -1,4 +1,7 @@
+@use '../../styles/_glass.scss' as glass;
+
 .card {
+    @include glass.glass();
     // border: 0.1rem solid black;
     // margin: 0.2rem;
     padding: 1rem;
@@ -9,22 +12,23 @@
     // width: minmax(10rem, 16rem);
     margin: 0.8rem auto;
     text-align: center;
-    background: white;
-    border-radius: 0.2rem;
-    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+    // background: white;
+    // border-radius: 0.2rem;
+    // box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 
     &:hover {
-        box-shadow: 5px 5px 10px hsl(0, 0%, 62%);
-        transition: 0.35s
+        box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+        transform: translateY(-4px) scale(1.03);
+        transition: 0.35s;
     }
 
     @media (prefers-color-scheme: dark) {
-        background: #3a3a3a;
-        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        background: rgba(40,40,60,0.35);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.32);
         color: #e0e0e0;
 
         &:hover {
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
         }
     }
 }

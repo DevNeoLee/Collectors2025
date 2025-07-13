@@ -1,5 +1,6 @@
 @use '../../_app' as *;
 @use 'sass:color';
+@use '../../styles/_glass.scss' as glass;
 
 .categoryPage {
   min-height: 100vh;
@@ -25,6 +26,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  @include glass.glass(14px, rgba(255,255,255,0.22), 22px, 1.5px);
 
   @media (prefers-color-scheme: dark) {
     background: rgba(45, 45, 45, 0.9);
@@ -180,6 +182,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  @include glass.glass(14px, rgba(255,255,255,0.22), 22px, 1.5px);
 
   @media (prefers-color-scheme: dark) {
     background: rgba(45, 45, 45, 0.9);

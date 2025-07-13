@@ -1,14 +1,18 @@
 @use '../../_app' as *;
+@use '../../styles/_glass.scss' as glass;
 
 .header {
+    @include glass.glass(14px, rgba(255,255,255,0.18), 0px, 1.5px);
     top: 0;
     z-index: 11;
-    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
+    border-radius: 0;
 
     @media (prefers-color-scheme: dark) {
-        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-        background-color: #3a3a3a;
+        background: rgba(45, 45, 45, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
 

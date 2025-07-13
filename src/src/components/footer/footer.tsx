@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
 
 import footerStyle from './footer.module.scss';
 import logo from '../../logoBox.svg';
+import blueplane from '../../blueplane_icon.svg';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2025;
 
   return (
     <footer className={footerStyle.footer}>
@@ -39,12 +40,6 @@ const Footer: React.FC = () => {
                 aria-label="LinkedIn"
               >
                 <FaLinkedin />
-              </a>
-              <a 
-                href="mailto:contact@collectorsapp.com" 
-                aria-label="Email"
-              >
-                <FaEnvelope />
               </a>
             </div>
           </div>
@@ -83,17 +78,20 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar - copyright + signature side by side */}
         <div className={footerStyle.bottomBar}>
-          <div className={footerStyle.bottomContent}>
-            <p className={footerStyle.copyright}>
-              © {currentYear} Collectors App. All rights reserved.
-            </p>
-            <div className={footerStyle.legalLinks}>
-              <Link to="/">Privacy Policy</Link>
-              <Link to="/">Terms of Service</Link>
-              <Link to="/">Cookie Policy</Link>
-            </div>
+          <div className={footerStyle.copyrightRow}>
+            <span className={footerStyle.copyrightText}>© {currentYear}</span>
+            <a
+              href="https://justinklee.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={footerStyle.homepage}
+              aria-label="Justin K Lee Homepage"
+            >
+              <span>Justin K Lee</span>
+              <img src={blueplane} alt="plane icon" className={footerStyle.planeIcon} />
+            </a>
           </div>
         </div>
       </div>

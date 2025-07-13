@@ -125,11 +125,12 @@ const Header: React.FC = () => {
             <div className={headerStyle.link}>
               <Link to="/shop/rarecollection">Rare<br />Collection</Link>
             </div>
+            <div className={headerStyle.divider}></div>
             {currentUser ? 
-              <div onClick={handleSignOut} className={headerStyle.link}>Log out</div>
+              <div onClick={handleSignOut} className={headerStyle.link + ' ' + headerStyle.login}>Log out</div>
               : 
-              <div className={`${headerStyle.link} ${headerStyle.login}`}>
-                <Link to="/login">Log in<br />/Sign Up</Link>
+              <div className={headerStyle.link + ' ' + headerStyle.login}>
+                <Link to="/login">Sign In</Link>
               </div>
             }  
           </div>

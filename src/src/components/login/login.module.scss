@@ -1,36 +1,78 @@
+@use '../../_app' as *;
+@use '../../styles/_glass.scss' as glass;
+
 .login {
-    background-color: rgba(211,211,211, 0.3);
-    padding: 35px 60px;
-    margin: 15px;
-    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
-    // width: 30rem;
+    @include glass.glass(20px, rgba(255,255,255,0.15), 20px, 1px);
+    padding: 3.5rem 3rem;
+    margin: 0;
+    max-width: 420px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+
+    h1 {
+        font-size: 2.25rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        color: #333;
+
+        @media (prefers-color-scheme: dark) {
+            color: #f0f0f0;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+        width: 100%;
+    }
 
     @media (prefers-color-scheme: dark) {
-        background-color: rgba(58, 58, 58, 0.8);
-        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        @include glass.glass(20px, rgba(40,40,60,0.15), 20px, 1px);
         color: #e0e0e0;
+    }
+
+    @media (max-width: 600px) {
+        padding: 2.5rem 2rem;
+        margin: 0;
+        gap: 1.5rem;
+        max-width: 380px;
+
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 2rem 1.5rem;
+        gap: 1.25rem;
+        max-width: 340px;
+
+        h1 {
+            font-size: 1.75rem;
+        }
     }
 }
 
 .error {
     background-color: #ffebee;
     color: #c62828;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 8px;
     border: 1px solid #ffcdd2;
-    font-size: 14px;
+    font-size: 0.9rem;
     text-align: center;
+    font-weight: 500;
 
     @media (prefers-color-scheme: dark) {
-        background-color: #4a2a2a;
+        background-color: rgba(244, 67, 54, 0.1);
         color: #ff8a80;
-        border: 1px solid #6d3f3f;
+        border: 1px solid rgba(244, 67, 54, 0.3);
     }
 }
-
-// .login form  {
-//     color: black;
-//     padding: 15px;
-//     margin: 15px;
-// }

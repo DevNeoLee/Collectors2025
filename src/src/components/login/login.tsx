@@ -25,7 +25,7 @@ const Login: React.FC = () => {
       await signInWithEmailAndPassword(auth, email, password);
       setFormData({ email: '', password: '' });
     } catch (error: any) {
-      setError(error.message || '로그인에 실패했습니다.');
+      setError(error.message || 'Login failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
     try {
       await signInWithGoogle();
     } catch (error: any) {
-      setError(error.message || 'Google 로그인에 실패했습니다.');
+      setError(error.message || 'Google login failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -51,7 +51,7 @@ const Login: React.FC = () => {
 
   return (
     <div className={loginStyle.login}>
-      <h1>로그인</h1>
+      <h1>Sign In</h1>
 
       {error && (
         <div className={loginStyle.error}>
@@ -65,7 +65,7 @@ const Login: React.FC = () => {
           type='email'
           handleChange={handleChange}
           value={formData.email}
-          label='이메일'
+          label='Email'
           required
         />
         <FormInput
@@ -73,11 +73,11 @@ const Login: React.FC = () => {
           type='password'
           value={formData.password}
           handleChange={handleChange}
-          label='비밀번호'
+          label='Password'
           required
         />
         <FormButton type='submit' disabled={isLoading}>
-          {isLoading ? '로그인 중...' : '로그인'}
+          {isLoading ? 'Signing in...' : 'Sign In'}
         </FormButton>
       </form>
       
@@ -86,7 +86,7 @@ const Login: React.FC = () => {
         isGoogle 
         disabled={isLoading}
       >
-        {isLoading ? '로그인 중...' : 'Google로 로그인'}
+        {isLoading ? 'Signing in...' : 'Sign in with Google'}
       </FormButton>
     </div>
   );

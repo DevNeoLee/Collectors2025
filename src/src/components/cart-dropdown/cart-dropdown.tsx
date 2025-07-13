@@ -13,13 +13,25 @@ const CartDropdown: React.FC = () => {
     goToCheckout 
   } = useCart();
 
+  console.log('🛒 CartDropdown render - products:', cartProducts.length, 'total:', cartTotal);
+
+  const handleClose = () => {
+    console.log('❌ Cart close button clicked');
+    toggleCart();
+  };
+
+  const handleCheckout = () => {
+    console.log('💳 Checkout button clicked');
+    goToCheckout();
+  };
+
   return (
-    <div className={cartDropdownStyle.main}>
+    <div className={`${cartDropdownStyle.main} cart-dropdown`}>
       <div className={cartDropdownStyle.header}>
         <h3>Shopping Cart</h3>
         <button 
           className={cartDropdownStyle.close} 
-          onClick={toggleCart}
+          onClick={handleClose}
           aria-label="Close cart"
         >
           ×
@@ -42,7 +54,7 @@ const CartDropdown: React.FC = () => {
       </div>  
       <div className={cartDropdownStyle.button}>
         <FormButton 
-          onClick={goToCheckout}
+          onClick={handleCheckout}
           disabled={cartProducts.length === 0}
         >
           {cartProducts.length > 0 ? 'Checkout' : 'Cart Empty'}

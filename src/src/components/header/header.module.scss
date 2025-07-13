@@ -19,6 +19,8 @@
 
 .main {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 120px;
     z-index: 10;
     position: relative;
@@ -41,9 +43,9 @@
 }
 
 .menu {
-    width: 100%;
-    padding: 0 0.5rem;
-    position:relative;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .links {
@@ -63,37 +65,92 @@
 
 .toggleMenu {
     display: none;
-    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
-    padding: 5px 4px 0px 5px;
-    margin: 1.3rem 0px 0rem 0px;
-    width: 3rem;
-    position: fixed;
-    top: 22px;
-    right: 140px;
-    background-color: white;
-    border-radius: 0.1rem;
-    z-index: 10;
-    justify-content: center;
     align-items: center;
-    border-radius: 0.1rem;
+    justify-content: center;
+    background: rgba(40,40,60,0.95);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2.2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: all 0.2s;
+}
 
-    &:hover {
-    transition: 0.2s;
-    box-shadow: 5px 5px 10px hsl(0, 0%, 62%);
+.mobileControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 200;
+}
 
-        .image {
-            transform: scale(1.1);
-            transition: 0.35s;
-        }
+.mobileCartCount {
+    position: relative;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border: 2px solid white;
+    z-index: 5;
+    animation: pulse 2s infinite;
+
+    span {
+        line-height: 1;
     }
+}
 
-    @media (prefers-color-scheme: dark) {
-        background-color: #4a4a4a;
-        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
-        &:hover {
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-        }
+.cartIconMobile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cartBadge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff7b7b;
+    color: white;
+    border-radius: 50%;
+    min-width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 2px solid white;
+    z-index: 5;
+    pointer-events: none;
+}
+
+@media (min-width: 901px) {
+    .cartIconMobile, .cartBadge {
+        display: none !important;
     }
 }
 
@@ -102,7 +159,8 @@
     max-height: 2.4rem;
     width: auto;
     height: auto;
-    opacity: 1; 
+    opacity: 1;
+    filter: brightness(0) invert(1);
 }
 
 a {
@@ -129,7 +187,10 @@ a {
 }   
 
 .cartHeader {
-    cursor: pointer;
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 250;
 }
 
 .sticky {
@@ -154,18 +215,84 @@ a {
 }
 
 .menudown {
-    position: fixed;
-    right: 5px;
-    top: 100px;
-    background-color: white;
     display: none;
-    padding: 5rem;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 70px;
+    width: 100vw;
+    max-width: 280px;
+    background: rgba(40,40,60,0.95);
+    color: white;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    padding: 1.5rem 1rem;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
 
     @media (prefers-color-scheme: dark) {
-        background-color: #3a3a3a;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+        background: rgba(20,20,30,0.95);
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        margin: 0;
+
+        &:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
+
+            &:hover {
+                color: white;
+                transform: none;
+            }
+        }
+
+
+    }
+
+    .login {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+
+        &:hover {
+            background: rgba(255,255,255,0.15);
+        }
+    }
+
+    // 모바일 메뉴 내 카트 드롭다운 스타일
+    :global(.cart-dropdown) {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 }
 
@@ -192,14 +319,43 @@ a {
 
 .show {display: block;}
 
+.toggle {
+    display: block !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.close {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.open {
+    display: block !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+}
+
+.closed {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-10px) !important;
+}
+
 @media only screen and (max-width: 890px) {
     .menu {
         display: none;
     }
 
+    .mobileControls {
+        display: flex;
+    }
+
     .toggleMenu {
-        display: block;
-        position: fixed;
+        display: flex;
     }
 
     .toggle {
@@ -207,6 +363,30 @@ a {
     }
 
     .close {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .main {
+        flex-direction: row;
+        height: auto;
+        min-height: 80px;
+    }
+    .logo {
+        flex: 0 0 auto;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+    .menu {
+        display: none;
+    }
+    .mobileControls {
+        display: flex;
+    }
+    .toggleMenu {
+        display: flex;
+    }
+    .cartHeader {
         display: none;
     }
 }

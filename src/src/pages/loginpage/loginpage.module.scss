@@ -1,31 +1,34 @@
+
 .loginpage {
+    padding: 20px;
+    height: 100vh;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin-top: 3rem;
-    min-height: 40rem;
-    margin-bottom: 10rem;
 
 }
 
 .vl {
-  border-left: 1px solid rgba(211,211,211,0.8);
-  height: 400px;
-  position: absolute;
-  left: 50%;
+    display: none;
 }
 
 @media only screen and (max-width: 1000px) {
-  .loginpage {
-    display: grid;
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-    margin: 0rem auto;
-  }
+    .loginpage {
+        display: flex;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
 
-  .vl {
-    display: none;
-  }
+    .vl {
+        display: none;
+    }
+}
 
+.login {
+    margin: auto !important;
+    align-self: center;
+    margin: auto 0;
 }

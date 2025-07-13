@@ -23,12 +23,12 @@ const SignUp: React.FC = () => {
     const { displayName, email, password, confirmPassword } = formData;
 
     if (password !== confirmPassword) {
-      setError('비밀번호가 일치하지 않습니다.');
+      setError('Passwords do not match.');
       return;
     }
 
     if (password.length < 6) {
-      setError('비밀번호는 최소 6자 이상이어야 합니다.');
+      setError('Password must be at least 6 characters long.');
       return;
     }
 
@@ -45,7 +45,7 @@ const SignUp: React.FC = () => {
         confirmPassword: ''
       });
     } catch (error: any) {
-      setError(error.message || '회원가입에 실패했습니다.');
+      setError(error.message || 'Sign up failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -60,7 +60,7 @@ const SignUp: React.FC = () => {
 
   return (
     <div className={signupStyle.signup}>
-      <h1>회원가입</h1>
+      <h1>Sign Up</h1>
       
       {error && (
         <div className={signupStyle.error}>
@@ -74,7 +74,7 @@ const SignUp: React.FC = () => {
           name='displayName'
           value={displayName}
           handleChange={handleChange}
-          label='이름'
+          label='Name'
           required
         />
         <FormInput
@@ -82,7 +82,7 @@ const SignUp: React.FC = () => {
           name='email'
           value={email}
           handleChange={handleChange}
-          label='이메일'
+          label='Email'
           required
         />
         <FormInput
@@ -90,7 +90,7 @@ const SignUp: React.FC = () => {
           name='password'
           value={password}
           handleChange={handleChange}
-          label='비밀번호'
+          label='Password'
           required
         />
         <FormInput
@@ -98,11 +98,11 @@ const SignUp: React.FC = () => {
           name='confirmPassword'
           value={confirmPassword}
           handleChange={handleChange}
-          label='비밀번호 확인'
+          label='Confirm Password'
           required
         />
         <FormButton type='submit' disabled={isLoading}>
-          {isLoading ? '가입 중...' : '회원가입'}
+          {isLoading ? 'Signing up...' : 'Sign Up'}
         </FormButton>
       </form>
     </div>

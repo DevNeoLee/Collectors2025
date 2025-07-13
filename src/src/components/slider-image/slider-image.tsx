@@ -18,11 +18,12 @@ const SliderImage: React.FC<SliderImageProps> = ({ src, index, text }) => {
   };
 
   return (
-    <div>
+    <div className={sliderStyle.sliderItem}>
+      <img src={src} alt="slide-img" className={sliderStyle.image} />
+      <div className={sliderStyle.overlay}></div>
       <Link to={`/shop/${MAP_LINK[index]}`}>
         <span className={sliderStyle.text}>{text}</span>
       </Link>
-      <img src={src} alt="slide-img" className={sliderStyle.image} />
     </div>
   );
 };

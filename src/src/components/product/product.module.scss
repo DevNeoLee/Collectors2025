@@ -7,9 +7,9 @@ $card-bg-light: white;
 $card-bg-dark: #3a3a3a;
 
 .product {
-  background: $card-bg-light;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(40, 40, 60, 0.08);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   height: 400px; // 고정 높이 설정
@@ -17,16 +17,17 @@ $card-bg-dark: #3a3a3a;
   flex-direction: column;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px) scale(1.012);
+    box-shadow: 0 4px 12px rgba(40, 40, 60, 0.13);
   }
 
   @media (prefers-color-scheme: dark) {
-    background: $card-bg-dark;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: #232a3a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
 
     &:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.32);
+      transform: translateY(-1px) scale(1.012);
     }
   }
 }
@@ -39,7 +40,7 @@ $card-bg-dark: #3a3a3a;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: inherit;
+  background-color: #fff;
   border-radius: 0;
   margin: 0 auto;
   padding: 18px;
@@ -48,7 +49,7 @@ $card-bg-dark: #3a3a3a;
   transition: background 0.2s;
 
   @media (prefers-color-scheme: dark) {
-    background-color: $card-bg-dark;
+    background-color: #232a3a;
   }
 }
 

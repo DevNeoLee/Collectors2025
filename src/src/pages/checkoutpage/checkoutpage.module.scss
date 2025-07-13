@@ -133,10 +133,12 @@
 
 // 체크아웃 페이지 전체 레이아웃
 .checkoutPage {
-    @media (prefers-color-scheme: dark) {
-        background-color: #2d2d2d;
-        color: #e0e0e0;
-    }
+  min-height: 100vh;
+  background: #e5e7eb;
+  @media (prefers-color-scheme: dark) {
+    background: #16181d;
+    color: #e0e0e0;
+  }
 }
 
 .items {

@@ -1,20 +1,19 @@
-@use '../../styles/_glass.scss' as glass;
+
 
 .card {
-    @include glass.glass();
     // border: 0.1rem solid black;
-    // margin: 0.2rem;
-    padding: 1rem;
-    // flex: 1 2 calc(25% - 1rem);
-    // width: 25rem;
+    margin: 0.2rem;
+    padding: 2rem;
+    flex: 1 2 calc(25% - 1rem);
+    width: 25rem;
     max-width: 19rem;
     min-width: 16rem;
     // width: minmax(10rem, 16rem);
     margin: 0.8rem auto;
     text-align: center;
-    // background: white;
-    // border-radius: 0.2rem;
-    // box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 
     &:hover {
         box-shadow: 0 12px 32px rgba(0,0,0,0.18);

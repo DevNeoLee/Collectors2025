@@ -1,9 +1,9 @@
 .categoryContainer {
-    margin: 0rem 0rem 1.5rem 0rem;
-    box-shadow: 0 2px 12px rgba(40,40,60,0.08);
-    border-radius: 12px;
-    overflow: hidden;
-    background: none;
+  margin: 0rem 0rem 1.5rem 0rem;
+  box-shadow: 0 2px 12px rgba(40,40,60,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #eeeeee;
 }
 
 .category {
@@ -16,30 +16,29 @@
 }
 
 .titleContainer {
-    background: rgba(255,255,255,0.45);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(40,40,60,0.08);
-    border-radius: 12px 12px 0 0;
-    padding: 1.2rem 1rem 0.7rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.3s;
-    border-bottom: 2px solid #b3d8fd;
-    position: relative;
-    z-index: 2;
-    &:hover {
-        box-shadow: 0 4px 16px rgba(40,40,60,0.13);
-        cursor: pointer;
-        .title {
-            color: #1565c0;
-            text-shadow: 0 2px 12px rgba(21,101,192,0.18);
-        }
-        .title::after {
-            background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%);
-            opacity: 1;
-        }
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(40,40,60,0.06);
+  border-radius: 12px 12px 0 0;
+  padding: 1.2rem 1rem 0.7rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s;
+  border-bottom: 2px solid #b3d8fd;
+  position: relative;
+  z-index: 2;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(40,40,60,0.13);
+    cursor: pointer;
+    .title {
+      color: #1565c0;
+      text-shadow: 0 2px 12px rgba(21,101,192,0.18);
     }
+    .title::after {
+      background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%);
+      opacity: 1;
+    }
+  }
 }
 .title {
     font-size: 1.65rem;

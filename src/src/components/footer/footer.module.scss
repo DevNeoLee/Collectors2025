@@ -2,12 +2,12 @@
 @use '../../styles/_glass.scss' as glass;
 
 .footer {
-  background: #184a7c;
+  background: #232946;
   color: white;
   margin-top: auto;
 
   @media (prefers-color-scheme: dark) {
-    background: #232a3a;
+    background: #181c24;
   }
 }
 
@@ -224,4 +224,5 @@
   display: inline-block;
   vertical-align: middle;
   margin: 0;
+  transition: transform 0.25s cubic-bezier(0.4,0.2,0.2,1);
 }

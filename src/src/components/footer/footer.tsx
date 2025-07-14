@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
           <div className={footerStyle.copyrightRow}>
             <span className={footerStyle.copyrightText}>© {currentYear}</span>
             <a
-              href="https://justinklee.com"
+              href="https://devneolee.github.io/justinklee/"
               target="_blank"
               rel="noopener noreferrer"
               className={footerStyle.homepage}

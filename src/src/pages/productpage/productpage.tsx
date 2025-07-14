@@ -199,12 +199,11 @@ const Productpage: React.FC = () => {
               
               <button 
                 onClick={() => {
-                  handleAddToCart();
                   navigate('/checkout');
                 }}
                 className={`${productpageStyle.buyNowButton} ${productpageStyle.actionButton}`}
               >
-                Buy Now
+                Go to Cart
               </button>
             </div>
           </div>

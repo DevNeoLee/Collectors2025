@@ -32,8 +32,8 @@ class ErrorBoundary extends Component<Props, State> {
           textAlign: 'center',
           fontFamily: 'Arial, sans-serif'
         }}>
-          <h2>😵 오류가 발생했습니다</h2>
-          <p>페이지를 새로고침해주세요.</p>
+          <h2>😵 An error occurred</h2>
+          <p>Please refresh the page.</p>
           <button 
             onClick={() => window.location.reload()}
             style={{
@@ -45,7 +45,7 @@ class ErrorBoundary extends Component<Props, State> {
               cursor: 'pointer'
             }}
           >
-            새로고침
+            Refresh
           </button>
         </div>
       );

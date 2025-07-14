@@ -2,7 +2,7 @@
   margin: 1rem;
 }
 
-// 카드 배경색 변수 선언
+// Card background color variable declaration
 $card-bg-light: white;
 $card-bg-dark: #3a3a3a;
 
@@ -12,7 +12,7 @@ $card-bg-dark: #3a3a3a;
   box-shadow: 0 2px 8px rgba(40, 40, 60, 0.08);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 400px; // 고정 높이 설정
+  height: 400px; // Fixed height setting
   display: flex;
   flex-direction: column;
 
@@ -55,7 +55,7 @@ $card-bg-dark: #3a3a3a;
 
 .details {
   padding: 1rem;
-  flex: 1; // 남은 공간을 차지
+  flex: 1; // Take remaining space
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -83,7 +83,7 @@ $card-bg-dark: #3a3a3a;
   font-size: 1.2rem;
   font-weight: 700;
   color: #0b009a;
-  margin-top: auto; // 가격을 하단에 배치
+  margin-top: auto; // Position price at bottom
 
   @media (prefers-color-scheme: dark) {
     color: #7c8cff;

@@ -1,4 +1,4 @@
-// Glassmorphism 스타일 믹스인
+// Glassmorphism style mixin
 @mixin glass($blur: 12px, $bg: rgba(255,255,255,0.18), $radius: 18px, $border: 1px) {
   background: $bg;
   border-radius: $radius;
@@ -9,7 +9,7 @@
   border-color: rgba(255,255,255,0.25);
 }
 
-// Glass 유틸리티 클래스
+// Glass utility classes
 .glass {
   @include glass();
 } 

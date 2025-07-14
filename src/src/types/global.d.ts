@@ -1,10 +1,10 @@
-// SCSS 모듈 타입 선언
+// SCSS module type declaration
 declare module '*.module.scss' {
   const classes: { [key: string]: string };
   export default classes;
 }
 
-// 이미지 파일 타입 선언
+// Image file type declaration
 declare module '*.svg' {
   const content: string;
   export default content;
@@ -30,7 +30,7 @@ declare module '*.gif' {
   export default content;
 }
 
-// FontAwesome 타입 선언
+// FontAwesome type declaration
 declare module '@fortawesome/react-fontawesome' {
   import { ComponentType } from 'react';
   
@@ -53,7 +53,7 @@ declare module '@fortawesome/free-solid-svg-icons' {
   export const faAngleDoubleRight: any;
 }
 
-// React Icons 타입 선언
+// React Icons type declaration
 declare module 'react-icons/gi' {
   import { ComponentType } from 'react';
   
@@ -66,7 +66,7 @@ declare module 'react-icons/gi' {
   export const GiShoppingCart: ComponentType<IconProps>;
 }
 
-// Stripe 타입 선언
+// Stripe type declaration
 declare module 'react-stripe-checkout' {
   import { ComponentType } from 'react';
   

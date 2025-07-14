@@ -135,7 +135,7 @@
     }
 }
 
-// 텍스트, 합계, 버튼 등도 진한 색상으로 유지
+// Keep text, total, buttons in dark colors
 .body, .total, .header h3 {
     color: #222;
     @media (prefers-color-scheme: dark) {

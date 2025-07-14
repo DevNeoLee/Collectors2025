@@ -91,7 +91,7 @@
         transform: scale(1.025);
     }
 
-    // 밑줄 indicator 효과
+    // Underline indicator effect
     &::after {
         content: '';
         display: block;
@@ -416,7 +416,7 @@ a {
         }
     }
 
-    // 모바일 메뉴 내 카트 드롭다운 스타일
+    // Mobile menu cart dropdown styles
     :global(.cart-dropdown) {
         margin-top: 1rem;
         padding-top: 1rem;

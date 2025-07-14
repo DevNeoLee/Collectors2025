@@ -1,4 +1,4 @@
-// Firebase 사용자 타입
+// Firebase user type
 export interface UserData {
   displayName: string | null;
   email: string | null;
@@ -6,7 +6,7 @@ export interface UserData {
   [key: string]: any;
 }
 
-// 상품 관련 타입
+// Product related types
 export interface ShopItem {
   id: number;
   name: string;
@@ -27,7 +27,7 @@ export interface ShopState {
   collections: { [key: string]: ShopCollection };
 }
 
-// 장바구니 관련 타입
+// Cart related types
 export interface CartItem {
   id: number;
   name: string;
@@ -41,12 +41,12 @@ export interface CartState {
   cartProducts: CartItem[];
 }
 
-// 사용자 관련 타입
+// User related types
 export interface UserState {
   currentUser: UserData | null;
 }
 
-// 디렉토리 관련 타입
+// Directory related types
 export interface DirectoryItem {
   id: number;
   title: string;
@@ -59,7 +59,7 @@ export interface DirectoryState {
   sections: DirectoryItem[];
 }
 
-// 루트 상태 타입 (store에서 추론됨)
+// Root state type (inferred from store)
 export interface RootState {
   user: UserState;
   cart: CartState;
@@ -67,7 +67,7 @@ export interface RootState {
   directory: DirectoryState;
 }
 
-// 컴포넌트 Props 타입들
+// Component Props types
 export interface CategoryProps {
   id: number;
   title: string;

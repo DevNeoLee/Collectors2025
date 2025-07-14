@@ -7,7 +7,7 @@ interface LoadingSpinnerProps {
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ 
   size = 'medium', 
-  text = '로딩 중...' 
+  text = 'Loading...' 
 }) => {
   const sizeMap = {
     small: '20px',

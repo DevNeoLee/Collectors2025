@@ -9,7 +9,7 @@ import { store, persistor } from './src/redux/store'
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('pk_test_51Nw...YOUR_KEY_HERE'); // 실제 키로 교체 필요
+const stripePromise = loadStripe('pk_test_51Nw...YOUR_KEY_HERE'); // Replace with actual key
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

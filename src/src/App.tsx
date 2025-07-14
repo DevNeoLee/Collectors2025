@@ -20,7 +20,7 @@ const Shoppage = lazy(() => import('./pages/shoppage/shoppage.tsx'));
 const CheckoutPage = lazy(() => import('./pages/checkoutpage/checkoutpage.tsx'));
 const Productpage = lazy(() => import('./pages/productpage/productpage.tsx'));
 
-// ScrollToTop 컴포넌트 추가
+// ScrollToTop component
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {

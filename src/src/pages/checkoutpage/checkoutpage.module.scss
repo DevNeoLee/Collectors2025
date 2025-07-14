@@ -130,7 +130,7 @@
     }
 }
 
-// 체크아웃 페이지 전체 레이아웃
+// Checkout page overall layout
 .checkoutPage {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -146,7 +146,7 @@
     }
 }
 
-// 구분선 스타일
+// Divider styles
 hr {
     @media (prefers-color-scheme: dark) {
         border-color: #5a5a5a;

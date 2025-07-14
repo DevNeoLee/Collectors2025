@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import cartDropdownStyle from './cart-dropdown.module.scss';
 import FormButton from '../form-button/form-button';
@@ -10,10 +10,39 @@ const CartDropdown: React.FC = () => {
     cartProducts, 
     cartTotal, 
     toggleCart, 
-    goToCheckout 
+    goToCheckout,
+    isCartHidden
   } = useCart();
 
-  console.log('🛒 CartDropdown render - products:', cartProducts.length, 'total:', cartTotal);
+  const cartRef = useRef<HTMLDivElement>(null);
+
+  console.log('🛒 CartDropdown render - products:', cartProducts.length, 'total:', cartTotal, 'hidden:', isCartHidden);
+
+  // Handle click outside to close cart dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        console.log('🖱️ Click outside cart dropdown detected');
+        if (!isCartHidden) {
+          console.log('❌ Closing cart dropdown due to outside click');
+          toggleCart();
+        }
+      }
+    };
+
+    // Only add listener if cart is open
+    if (!isCartHidden) {
+      console.log('📝 Adding click outside listener for cart dropdown');
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      if (!isCartHidden) {
+        console.log('🧹 Removing click outside listener for cart dropdown');
+        document.removeEventListener('click', handleClickOutside);
+      }
+    };
+  }, [isCartHidden, toggleCart]);
 
   const handleClose = () => {
     console.log('❌ Cart close button clicked');
@@ -25,8 +54,17 @@ const CartDropdown: React.FC = () => {
     goToCheckout();
   };
 
+  // Prevent event propagation when clicking inside the cart dropdown
+  const handleCartClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className={`${cartDropdownStyle.main} cart-dropdown`}>
+    <div 
+      ref={cartRef}
+      className={`${cartDropdownStyle.main} cart-dropdown`}
+      onClick={handleCartClick}
+    >
       <div className={cartDropdownStyle.header}>
         <h3>Shopping Cart</h3>
         <button 

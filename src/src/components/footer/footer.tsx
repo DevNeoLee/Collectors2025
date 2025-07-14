@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
 
 import footerStyle from './footer.module.scss';
 import logo from '../../logoBox.svg';
-import blueplane from '../../blueplane_icon.svg';
+import blueplane from '../../Vectorfinalplane.svg';
 
 const Footer: React.FC = () => {
   const currentYear = 2025;

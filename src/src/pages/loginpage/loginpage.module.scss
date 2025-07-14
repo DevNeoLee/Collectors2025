@@ -35,3 +35,83 @@
     align-self: center;
     margin: auto 0;
 }
+
+.tabButtons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.activeTab {
+  background: #184a7c;
+  color: #fff;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(24,74,124,0.08);
+}
+
+.inactiveTab {
+  background: #e5e7eb;
+  color: #184a7c;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.formContainer {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.sideBySideContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 100%;
+  }
+}
+
+.leftForm, .rightForm {
+  flex: 1 1 0;
+  min-width: 320px;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(40,40,60,0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  @media (prefers-color-scheme: dark) {
+    background: #23242a;
+  }
+}
+
+.leftForm {
+  border-right: 2px solid #e5e7eb;
+  @media (max-width: 700px) {
+    border-right: none;
+    border-bottom: 2px solid #e5e7eb;
+  }
+}
+
+.rightForm {
+  border-left: 2px solid #e5e7eb;
+  @media (max-width: 700px) {
+    border-left: none;
+    border-top: 2px solid #e5e7eb;
+  }
+}

@@ -20,26 +20,18 @@ const Productpage: React.FC = () => {
   // Find product from all categories
   const findProduct = (): ShopItem | null => {
     if (!collections || !productId) {
-      console.log('Collections or productId is missing:', { collections, productId });
       return null;
     }
     
-    console.log('Looking for product with ID:', productId);
-    console.log('Available collections:', Object.keys(collections));
-    
     for (const category of Object.values(collections)) {
-      console.log('Checking category:', category.title, 'with items:', category.items.length);
       const product = category.items.find((item: ShopItem) => {
-        console.log('Comparing item ID:', item.id, 'with productId:', productId, 'Type:', typeof item.id, typeof productId);
         return item.id === parseInt(productId);
       });
       if (product) {
-        console.log('Found product:', product);
         return product;
       }
     }
     
-    console.log('Product not found in any category');
     return null;
   };
 

@@ -10,10 +10,7 @@ const CartHeader: React.FC = () => {
   const cartCount = useSelector((state: RootState) => selectCartProductsCount(state));
   const { toggleCart } = useCart();
 
-  console.log('🛒 CartHeader render - count:', cartCount);
-
   const handleClick = (event: React.MouseEvent) => {
-    console.log('🛒 CartHeader clicked - toggling cart');
     // Prevent event propagation so the click outside listener doesn't immediately close the cart
     event.stopPropagation();
     toggleCart();

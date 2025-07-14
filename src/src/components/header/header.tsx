@@ -21,43 +21,32 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const dropMenu = (event: React.MouseEvent) => {
-    console.log('🔘 Toggle button clicked!');
-    console.log('📊 Current isOpen state:', isOpen);
-    
     // Prevent event propagation so external click listener doesn't execute immediately
     event.stopPropagation();
     
     const newState = !isOpen;
-    console.log('🔄 Setting isOpen to:', newState);
     setIsOpen(newState);
   };
 
   useEffect(() => {
-    console.log('🔄 isOpen state changed to:', isOpen);
-    
     const handleClickOutside = (event: MouseEvent) => {
-      console.log('🖱️ Click outside detected');
       if (isOpen) {
-        console.log('❌ Closing menu due to outside click');
         setIsOpen(false);
       }
     };
 
     if (isOpen) {
-      console.log('📝 Adding click outside listener');
       document.addEventListener('click', handleClickOutside);
     }
 
     return () => {
       if (isOpen) {
-        console.log('🧹 Removing click outside listener');
         document.removeEventListener('click', handleClickOutside);
       }
     };
   }, [isOpen]);
 
   const handleSignOut = () => {
-    console.log('🔘 Sign out clicked');
     auth.signOut();
   };
 
@@ -66,16 +55,12 @@ const Header: React.FC = () => {
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth <= 900;
-      console.log('📱 Screen width:', window.innerWidth, 'isMobile:', mobile);
       setIsMobile(mobile);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  console.log('🎯 Render - isMobile:', isMobile, 'isOpen:', isOpen);
-  console.log('🛒 Cart state - isCartHidden:', isCartHidden, 'cartCount:', cartCount);
 
   return (
     <div className={headerStyle.header}>
@@ -139,7 +124,6 @@ const Header: React.FC = () => {
               <Link 
                 to="/login" 
                 className={`${headerStyle.link} ${headerStyle.login}`}
-                onClick={() => console.log('🔘 Header Sign In clicked')}
               >
                 Sign In
               </Link>
@@ -180,7 +164,6 @@ const Header: React.FC = () => {
                 <Link 
                   to="/login" 
                   className={`${headerStyle.link} ${headerStyle.login}`}
-                  onClick={() => console.log('🔘 Mobile Sign In clicked')}
                 >
                   Log in / Sign Up
                 </Link>

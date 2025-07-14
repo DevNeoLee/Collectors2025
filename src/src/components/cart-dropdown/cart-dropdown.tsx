@@ -16,15 +16,11 @@ const CartDropdown: React.FC = () => {
 
   const cartRef = useRef<HTMLDivElement>(null);
 
-  console.log('🛒 CartDropdown render - products:', cartProducts.length, 'total:', cartTotal, 'hidden:', isCartHidden);
-
   // Handle click outside to close cart dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
-        console.log('🖱️ Click outside cart dropdown detected');
         if (!isCartHidden) {
-          console.log('❌ Closing cart dropdown due to outside click');
           toggleCart();
         }
       }
@@ -32,25 +28,21 @@ const CartDropdown: React.FC = () => {
 
     // Only add listener if cart is open
     if (!isCartHidden) {
-      console.log('📝 Adding click outside listener for cart dropdown');
       document.addEventListener('click', handleClickOutside);
     }
 
     return () => {
       if (!isCartHidden) {
-        console.log('🧹 Removing click outside listener for cart dropdown');
         document.removeEventListener('click', handleClickOutside);
       }
     };
   }, [isCartHidden, toggleCart]);
 
   const handleClose = () => {
-    console.log('❌ Cart close button clicked');
     toggleCart();
   };
 
   const handleCheckout = () => {
-    console.log('💳 Checkout button clicked');
     goToCheckout();
   };
 

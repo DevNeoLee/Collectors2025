@@ -57,10 +57,7 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
 
   // Note: Removed redirect functionality as requested
 
-  // Debug: Log cart state changes
-  useEffect(() => {
-    console.log('Cart products count:', cartProducts.length);
-  }, [cartProducts]);
+
 
 
 
@@ -68,7 +65,6 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Form submitted');
     setError(null);
     setSuccess(false);
     setLoading(true);
@@ -82,11 +78,8 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
     // In a real service, you would create a PaymentIntent on the server and receive a clientSecret.
     // This is for demo purposes only.
     setTimeout(() => {
-      console.log('Processing payment for items:', cartProducts);
-      
       // Store purchased items before clearing cart
       const itemsToPurchase = [...cartProducts];
-      console.log('Items to purchase:', itemsToPurchase);
       
       // Use the same approach as the test button
       setSuccess(true);
@@ -100,7 +93,6 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
       
       // Clear the cart after successful payment
       dispatch(clearCart());
-      console.log('Payment successful - cart cleared, purchased items:', itemsToPurchase);
     }, 1500);
   };
 
@@ -256,21 +248,16 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
       <button 
         type="button" 
         onClick={() => {
-          console.log('Demo button clicked');
           setLoading(true);
           setError(null);
           setSuccess(false);
           
           setTimeout(() => {
-            console.log('Processing demo payment for items:', cartProducts);
-            
             // Store purchased items before clearing cart
             const itemsToPurchase = [...cartProducts];
-            console.log('Demo items to purchase:', itemsToPurchase);
             
             // Set states one by one with delays to ensure they update
             setSuccess(true);
-            console.log('✅ setSuccess(true) called');
             
             // Notify parent component about payment success
             if (onPaymentSuccess) {
@@ -279,15 +266,12 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
             
             setTimeout(() => {
               setPurchasedItems(itemsToPurchase);
-              console.log('✅ setPurchasedItems called with:', itemsToPurchase);
               
               setTimeout(() => {
                 setLoading(false);
-                console.log('✅ setLoading(false) called');
                 
                 // Clear cart after setting states
                 dispatch(clearCart());
-                console.log('Demo payment successful - cart cleared, purchased items:', itemsToPurchase);
               }, 100);
             }, 100);
           }, 1000);
@@ -363,7 +347,6 @@ const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> 
                       alt={item.name}
                       style={productImageStyle}
                       onError={(e) => {
-                        console.log('Image failed to load:', item.imageUrl);
                         e.currentTarget.style.display = 'none';
                       }}
                     />

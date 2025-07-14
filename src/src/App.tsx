@@ -35,7 +35,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const unsubscribeFromAuth = onAuthStateChanged(auth, async (userAuth) => {
-      console.log('[onAuthStateChanged] userAuth:', userAuth);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -43,7 +42,6 @@ const App: React.FC = () => {
           onSnapshot(userRef, (snapShot) => {
             const userData = snapShot.data();
             if (userData) {
-              console.log('[onSnapshot] userData:', userData);
               dispatch(setCurrentUser({
                 ...userAuth,
                 ...userData,
@@ -60,7 +58,6 @@ const App: React.FC = () => {
         uid: userAuth.uid,
         createdAt: new Date()
       } : null));
-      console.log('[dispatch setCurrentUser] userAuth:', userAuth);
     });
 
     return () => unsubscribeFromAuth();
@@ -69,8 +66,6 @@ const App: React.FC = () => {
   useEffect(() => {
     document.title = 'Collectors App - Premium Movie & Media Collections';
   }, []);
-
-  console.log('[App] currentUser:', currentUser);
 
   return (
     <ErrorBoundary>

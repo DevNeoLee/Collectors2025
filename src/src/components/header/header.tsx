@@ -24,7 +24,7 @@ const Header: React.FC = () => {
     console.log('🔘 Toggle button clicked!');
     console.log('📊 Current isOpen state:', isOpen);
     
-    // 이벤트 전파를 막아서 외부 클릭 리스너가 즉시 실행되지 않도록 함
+    // Prevent event propagation so external click listener doesn't execute immediately
     event.stopPropagation();
     
     const newState = !isOpen;
@@ -57,10 +57,11 @@ const Header: React.FC = () => {
   }, [isOpen]);
 
   const handleSignOut = () => {
+    console.log('🔘 Sign out clicked');
     auth.signOut();
   };
 
-  // 모바일 화면 여부 체크
+  // Check if mobile screen
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => {
@@ -78,13 +79,13 @@ const Header: React.FC = () => {
 
   return (
     <div className={headerStyle.header}>
-      {/* 데스크톱: 카트 아이콘 항상 표시 */}
+      {/* Desktop: Always show cart icon */}
       {!isMobile && (
         <div className={headerStyle.cartHeader}>
           <CartHeader />
         </div>
       )}
-      {/* 모바일: 토글 버튼만 (헤더 바로 아래에 위치) */}
+      {/* Mobile: Toggle button only (positioned below header) */}
       {isMobile && (
         <div className={headerStyle.mobileControls}>
           <div 
@@ -94,7 +95,7 @@ const Header: React.FC = () => {
           >
             <FaBars size={28} />
           </div>
-          {/* 모바일 카트 개수 표시 */}
+          {/* Mobile cart count display */}
           {cartCount > 0 && (
             <div className={headerStyle.mobileCartCount}>
               <span>{cartCount}</span>
@@ -110,56 +111,86 @@ const Header: React.FC = () => {
         </div>
         <div className={headerStyle.menu}>
           <div className={headerStyle.links}>
-            <div className={headerStyle.link}>
-              <Link to="/shop/movie"><p>Movie</p></Link>
-            </div>
-            <div className={headerStyle.link}>
-              <Link to="/shop/animation">Animation</Link>
-            </div>
-            <div className={headerStyle.link}>
-              <Link to="/shop/tvseries">TV<br />Series</Link>
-            </div>
-            <div className={headerStyle.link}>
-              <Link to="/shop/sportsart">Sports<br />/Art</Link>
-            </div>
-            <div className={headerStyle.link}>
-              <Link to="/shop/rarecollection">Rare<br />Collection</Link>
-            </div>
+            <Link to="/shop/movie" className={headerStyle.link}>
+              <span>Movie</span>
+            </Link>
+            <Link to="/shop/animation" className={headerStyle.link}>
+              <span>Animation</span>
+            </Link>
+            <Link to="/shop/tvseries" className={headerStyle.link}>
+              <span>TV<br />Series</span>
+            </Link>
+            <Link to="/shop/sportsart" className={headerStyle.link}>
+              <span>Sports<br />/Art</span>
+            </Link>
+            <Link to="/shop/rarecollection" className={headerStyle.link}>
+              <span>Rare<br />Collection</span>
+            </Link>
             <div className={headerStyle.divider}></div>
             {currentUser ? 
-              <div onClick={handleSignOut} className={headerStyle.link + ' ' + headerStyle.login}>Log out</div>
-              : 
-              <div className={headerStyle.link + ' ' + headerStyle.login}>
-                <Link to="/login">Sign In</Link>
+              <div 
+                onClick={handleSignOut} 
+                className={`${headerStyle.link} ${headerStyle.login}`}
+                style={{ cursor: 'pointer' }}
+              >
+                Log out
               </div>
+              : 
+              <Link 
+                to="/login" 
+                className={`${headerStyle.link} ${headerStyle.login}`}
+                onClick={() => console.log('🔘 Header Sign In clicked')}
+              >
+                Sign In
+              </Link>
             }  
           </div>
         </div>  
-        {/* 모바일: 토글 메뉴 클릭 시 메뉴+카트 드롭다운 */}
+        {/* Mobile: Menu + cart dropdown when toggle menu is clicked */}
         {isMobile && (
           <div 
             className={`${headerStyle.menudown} ${isOpen ? headerStyle.open : headerStyle.closed}`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className={headerStyle.list}>
-              <Link to={`/shop/movie`}><div className={headerStyle.link}>Movie</div></Link>
-              <div className={headerStyle.link}><Link to="/shop/animation">Animation</Link></div>
-              <div className={headerStyle.link}><Link to="/shop/tvseries">TV Series</Link></div>
-              <div className={headerStyle.link}><Link to="/shop/sportsart">Sports & Art</Link></div>
-              <div className={headerStyle.link}><Link to="/shop/rarecollection">Rare Collection</Link></div>
+              <Link to="/shop/movie" className={headerStyle.link}>
+                <span>Movie</span>
+              </Link>
+              <Link to="/shop/animation" className={headerStyle.link}>
+                <span>Animation</span>
+              </Link>
+              <Link to="/shop/tvseries" className={headerStyle.link}>
+                <span>TV Series</span>
+              </Link>
+              <Link to="/shop/sportsart" className={headerStyle.link}>
+                <span>Sports & Art</span>
+              </Link>
+              <Link to="/shop/rarecollection" className={headerStyle.link}>
+                <span>Rare Collection</span>
+              </Link>
               {currentUser ? 
-                <div onClick={handleSignOut} className={headerStyle.link}>Log out</div>
-                : 
-                <div className={`${headerStyle.link} ${headerStyle.login}`}>
-                  <Link to="/login">Log in / Sign Up</Link>
+                <div 
+                  onClick={handleSignOut} 
+                  className={headerStyle.link}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Log out
                 </div>
+                : 
+                <Link 
+                  to="/login" 
+                  className={`${headerStyle.link} ${headerStyle.login}`}
+                  onClick={() => console.log('🔘 Mobile Sign In clicked')}
+                >
+                  Log in / Sign Up
+                </Link>
               }
-              {/* 모바일에서만 카트 드롭다운 표시 */}
+              {/* Cart dropdown only on mobile */}
               <CartDropdown />
             </div>
           </div>
         )}
-        {/* 데스크톱: 카트 드롭다운 (카트 헤더 클릭 시 표시) */}
+        {/* Desktop: Cart dropdown (shown when cart header is clicked) */}
         {!isMobile && !isCartHidden && (
           <div className={headerStyle.sticky}>
             <CartDropdown />

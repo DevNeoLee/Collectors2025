@@ -39,7 +39,7 @@ const CARD_ELEMENT_OPTIONS_DARK = {
   },
 };
 
-const CheckoutForm: React.FC<{ amount: number }> = ({ amount }) => {
+const CheckoutForm: React.FC<{ amount: number; onPaymentSuccess?: () => void }> = ({ amount, onPaymentSuccess }) => {
   const stripe = useStripe();
   const elements = useElements();
   const dispatch = useDispatch();
@@ -48,6 +48,8 @@ const CheckoutForm: React.FC<{ amount: number }> = ({ amount }) => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [purchasedItems, setPurchasedItems] = useState<CartItem[]>([]);
+  
+
 
   // Detect dark mode
   const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -60,8 +62,13 @@ const CheckoutForm: React.FC<{ amount: number }> = ({ amount }) => {
     console.log('Cart products count:', cartProducts.length);
   }, [cartProducts]);
 
+
+
+
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    console.log('Form submitted');
     setError(null);
     setSuccess(false);
     setLoading(true);
@@ -75,64 +82,86 @@ const CheckoutForm: React.FC<{ amount: number }> = ({ amount }) => {
     // In a real service, you would create a PaymentIntent on the server and receive a clientSecret.
     // This is for demo purposes only.
     setTimeout(() => {
+      console.log('Processing payment for items:', cartProducts);
+      
       // Store purchased items before clearing cart
-      setPurchasedItems([...cartProducts]);
+      const itemsToPurchase = [...cartProducts];
+      console.log('Items to purchase:', itemsToPurchase);
+      
+      // Use the same approach as the test button
       setSuccess(true);
+      setPurchasedItems(itemsToPurchase);
       setLoading(false);
+      
+      // Notify parent component about payment success
+      if (onPaymentSuccess) {
+        onPaymentSuccess();
+      }
+      
       // Clear the cart after successful payment
       dispatch(clearCart());
-      console.log('Cart cleared after successful payment');
+      console.log('Payment successful - cart cleared, purchased items:', itemsToPurchase);
     }, 1500);
   };
 
   const formStyle = {
-    maxWidth: 1600,
+    maxWidth: 800,
     width: '100%',
-    margin: '2rem auto',
-    padding: '80px',
-    borderRadius: '24px',
-    backgroundColor: isDarkMode ? '#3a3a3a' : '#ffffff',
+    margin: '0 auto',
+    padding: '3rem',
+    borderRadius: '20px',
+    backgroundColor: isDarkMode ? 'rgba(45, 55, 72, 0.95)' : 'rgba(255, 255, 255, 0.95)',
     color: isDarkMode ? '#e0e0e0' : '#333333',
-    boxShadow: isDarkMode ? '0 8px 32px rgba(0, 0, 0, 0.3)' : '0 8px 32px rgba(0, 0, 0, 0.1)',
+    boxShadow: isDarkMode ? '0 20px 60px rgba(0, 0, 0, 0.3)' : '0 20px 60px rgba(0, 0, 0, 0.1)',
     display: 'flex',
     flexDirection: 'column' as const,
     alignItems: 'center' as const,
     justifyContent: 'center' as const,
+    border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(255, 255, 255, 0.3)',
+    backdropFilter: 'blur(10px)',
   };
 
   const buttonStyle = {
-    marginTop: 20,
-    padding: '10px 20px',
-    backgroundColor: isDarkMode ? '#7c8cff' : '#646cff',
+    marginTop: '2rem',
+    padding: '1rem 3rem',
+    backgroundColor: isDarkMode ? '#7c8cff' : '#667eea',
     color: '#ffffff',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: '12px',
     cursor: 'pointer',
-    fontSize: '16px',
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+    boxShadow: isDarkMode ? '0 8px 24px rgba(124, 140, 255, 0.3)' : '0 8px 24px rgba(102, 126, 234, 0.3)',
+    width: '100%',
+    maxWidth: '300px',
   };
 
   const errorStyle = {
-    color: '#ff6b6b',
-    marginTop: 10,
-    padding: '10px',
-    backgroundColor: isDarkMode ? '#4a2a2a' : '#ffebee',
-    borderRadius: '4px',
-    border: `1px solid ${isDarkMode ? '#6d3f3f' : '#ffcdd2'}`,
+    color: '#e53e3e',
+    marginTop: '1rem',
+    padding: '1rem 1.5rem',
+    backgroundColor: isDarkMode ? 'rgba(229, 62, 62, 0.1)' : 'rgba(229, 62, 62, 0.05)',
+    borderRadius: '12px',
+    border: `1px solid ${isDarkMode ? 'rgba(229, 62, 62, 0.3)' : 'rgba(229, 62, 62, 0.2)'}`,
+    fontSize: '0.9rem',
+    textAlign: 'center' as const,
+    width: '100%',
   };
 
   const successStyle = {
-    color: '#4caf50',
-    marginTop: 40,
-    padding: '80px',
-    backgroundColor: isDarkMode ? '#2a4a2a' : '#e8f5e8',
-    borderRadius: '32px',
-    border: `4px solid ${isDarkMode ? '#4d6d4d' : '#c8e6c9'}`,
+    color: '#38a169',
+    marginTop: '2rem',
+    padding: '3rem 2rem',
+    backgroundColor: isDarkMode ? 'rgba(56, 161, 105, 0.1)' : 'rgba(56, 161, 105, 0.05)',
+    borderRadius: '20px',
+    border: `2px solid ${isDarkMode ? 'rgba(56, 161, 105, 0.3)' : 'rgba(56, 161, 105, 0.2)'}`,
     textAlign: 'center' as const,
-    fontSize: '1.1rem',
-    fontWeight: 'bold',
-    boxShadow: isDarkMode ? '0 16px 48px rgba(0, 0, 0, 0.3)' : '0 16px 48px rgba(0, 0, 0, 0.1)',
+    fontSize: '1.2rem',
+    fontWeight: '600',
+    boxShadow: isDarkMode ? '0 16px 48px rgba(0, 0, 0, 0.2)' : '0 16px 48px rgba(0, 0, 0, 0.08)',
     width: '100%',
-    maxWidth: 1400,
+    maxWidth: '800px',
     marginLeft: 'auto',
     marginRight: 'auto',
     display: 'flex',
@@ -143,43 +172,82 @@ const CheckoutForm: React.FC<{ amount: number }> = ({ amount }) => {
 
   const productGridStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '40px',
-    marginTop: '60px',
-    marginBottom: '60px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+    gap: '2rem',
+    marginTop: '2rem',
+    marginBottom: '2rem',
     width: '100%',
     justifyItems: 'center' as const,
+    maxWidth: '600px',
   };
 
   const productImageStyle = {
-    width: '220px',
-    height: '220px',
+    width: '150px',
+    height: '150px',
     objectFit: 'cover' as const,
-    borderRadius: '20px',
-    border: `4px solid ${isDarkMode ? '#4d6d4d' : '#c8e6c9'}`,
+    borderRadius: '12px',
+    border: `2px solid ${isDarkMode ? 'rgba(56, 161, 105, 0.3)' : 'rgba(56, 161, 105, 0.2)'}`,
     background: '#fff',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.2s ease',
   };
 
   const testInfoStyle = {
-    marginTop: 20,
-    fontSize: 13,
-    color: isDarkMode ? '#b0b0b0' : '#888',
-    padding: '10px',
-    backgroundColor: isDarkMode ? '#4a4a4a' : '#f5f5f5',
-    borderRadius: '4px',
-    border: `1px solid ${isDarkMode ? '#5a5a5a' : '#e0e0e0'}`,
+    marginTop: '2rem',
+    fontSize: '0.9rem',
+    color: isDarkMode ? '#a0aec0' : '#64748b',
+    padding: '1rem 1.5rem',
+    backgroundColor: isDarkMode ? 'rgba(45, 55, 72, 0.8)' : 'rgba(248, 250, 252, 0.8)',
+    borderRadius: '12px',
+    border: `1px solid ${isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
+    textAlign: 'center' as const,
+    width: '100%',
+  };
+
+  const cardElementStyle = {
+    padding: '1rem 1.5rem',
+    border: `2px solid ${isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)'}`,
+    borderRadius: '12px',
+    backgroundColor: isDarkMode ? 'rgba(45, 55, 72, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+    marginTop: '1rem',
+    width: '100%',
+    maxWidth: '400px',
   };
 
   return (
     <form onSubmit={handleSubmit} style={formStyle}>
-      <h3 style={{ color: isDarkMode ? '#f0f0f0' : '#333333', marginBottom: '1rem' }}>
-        Card Payment
+      <h3 style={{ 
+        color: isDarkMode ? '#f0f0f0' : '#333333', 
+        marginBottom: '2rem',
+        fontSize: '1.8rem',
+        fontWeight: '700',
+        textAlign: 'center'
+      }}>
+        💳 Secure Payment
       </h3>
-      <CardElement options={cardOptions} />
+      
+      <div style={cardElementStyle}>
+        <CardElement options={cardOptions} />
+      </div>
+      
       <button 
         type="submit" 
         disabled={!stripe || loading} 
-        style={buttonStyle}
+        style={{
+          ...buttonStyle,
+          opacity: (!stripe || loading) ? 0.6 : 1,
+          transform: (!stripe || loading) ? 'scale(0.98)' : 'scale(1)',
+        }}
+        onMouseEnter={(e) => {
+          if (!(!stripe || loading)) {
+            e.currentTarget.style.transform = 'scale(1.02)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!(!stripe || loading)) {
+            e.currentTarget.style.transform = 'scale(1)';
+          }
+        }}
       >
         {loading ? 'Processing...' : `Pay $${amount}`}
       </button>
@@ -188,90 +256,183 @@ const CheckoutForm: React.FC<{ amount: number }> = ({ amount }) => {
       <button 
         type="button" 
         onClick={() => {
+          console.log('Demo button clicked');
           setLoading(true);
+          setError(null);
+          setSuccess(false);
+          
           setTimeout(() => {
+            console.log('Processing demo payment for items:', cartProducts);
+            
             // Store purchased items before clearing cart
-            setPurchasedItems([...cartProducts]);
+            const itemsToPurchase = [...cartProducts];
+            console.log('Demo items to purchase:', itemsToPurchase);
+            
+            // Set states one by one with delays to ensure they update
             setSuccess(true);
-            setLoading(false);
-            dispatch(clearCart());
-            console.log('Demo payment successful - cart cleared');
+            console.log('✅ setSuccess(true) called');
+            
+            // Notify parent component about payment success
+            if (onPaymentSuccess) {
+              onPaymentSuccess();
+            }
+            
+            setTimeout(() => {
+              setPurchasedItems(itemsToPurchase);
+              console.log('✅ setPurchasedItems called with:', itemsToPurchase);
+              
+              setTimeout(() => {
+                setLoading(false);
+                console.log('✅ setLoading(false) called');
+                
+                // Clear cart after setting states
+                dispatch(clearCart());
+                console.log('Demo payment successful - cart cleared, purchased items:', itemsToPurchase);
+              }, 100);
+            }, 100);
           }, 1000);
         }}
         disabled={loading || success}
         style={{
           ...buttonStyle,
-          marginTop: '10px',
-          backgroundColor: isDarkMode ? '#666' : '#999',
+          marginTop: '1rem',
+          backgroundColor: isDarkMode ? '#4a5568' : '#718096',
+          boxShadow: isDarkMode ? '0 8px 24px rgba(74, 85, 104, 0.3)' : '0 8px 24px rgba(113, 128, 150, 0.3)',
+          opacity: (loading || success) ? 0.5 : 1,
+          transform: (loading || success) ? 'scale(0.98)' : 'scale(1)',
+        }}
+        onMouseEnter={(e) => {
+          if (!(loading || success)) {
+            e.currentTarget.style.transform = 'scale(1.02)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!(loading || success)) {
+            e.currentTarget.style.transform = 'scale(1)';
+          }
         }}
       >
-        Demo Payment (Test)
+        🧪 Demo Payment (Test)
       </button>
       {error && <div style={errorStyle}>{error}</div>}
+      
+
+      
       {success && (
         <div style={successStyle}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '30px' }}>🎉</div>
-          <div style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '20px' }}>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎉</div>
+          <div style={{ fontSize: '2.2rem', fontWeight: 'bold', marginBottom: '1rem', color: '#38a169' }}>
             Payment Successful!
           </div>
           
-          {purchasedItems.length > 0 && (
+          {purchasedItems && purchasedItems.length > 0 ? (
             <>
-              <div style={{ fontSize: '1.2rem', marginBottom: '30px', opacity: 0.9 }}>
+              <div style={{ fontSize: '1.3rem', marginBottom: '2rem', opacity: 0.9, color: '#2d3748' }}>
                 Your order has been confirmed and will be shipped soon!
               </div>
               
-              <div style={{ fontSize: '1.1rem', marginBottom: '30px', opacity: 0.8 }}>
-                Purchased Items ({purchasedItems.length}):
+              <div style={{ 
+                fontSize: '1.2rem', 
+                marginBottom: '1.5rem', 
+                opacity: 0.8,
+                fontWeight: '600',
+                color: '#4a5568'
+              }}>
+                📦 Purchased Items ({purchasedItems.length})
               </div>
               
               <div style={productGridStyle}>
                 {purchasedItems.map((item, index) => (
-                  <div key={index} style={{ textAlign: 'center' }}>
+                  <div key={index} style={{ 
+                    textAlign: 'center',
+                    padding: '1rem',
+                    borderRadius: '12px',
+                    backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
+                    border: `1px solid ${isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'}`,
+                    transition: 'transform 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                  >
                     <img 
                       src={item.imageUrl} 
                       alt={item.name}
                       style={productImageStyle}
+                      onError={(e) => {
+                        console.log('Image failed to load:', item.imageUrl);
+                        e.currentTarget.style.display = 'none';
+                      }}
                     />
                     <div style={{ 
-                      fontSize: '1.1rem', 
-                      marginTop: '10px', 
-                      opacity: 0.8,
+                      fontSize: '1rem', 
+                      marginTop: '0.75rem', 
+                      opacity: 0.9,
+                      fontWeight: '600',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap'
+                      whiteSpace: 'nowrap',
+                      color: '#2d3748'
                     }}>
-                      {item.name.length > 20 ? item.name.substring(0, 20) + '...' : item.name}
+                      {item.name ? (item.name.length > 18 ? item.name.substring(0, 18) + '...' : item.name) : 'Unknown Item'}
+                    </div>
+                    <div style={{ 
+                      fontSize: '0.9rem', 
+                      color: '#38a169', 
+                      marginTop: '0.5rem',
+                      fontWeight: '600'
+                    }}>
+                      ${item.price} × {item.quantity}
                     </div>
                   </div>
                 ))}
               </div>
             </>
+          ) : (
+            <div style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.8 }}>
+              No items found in purchase history.
+            </div>
           )}
           
           <div style={{ 
             fontSize: '1.2rem', 
             marginTop: '30px', 
-            padding: '20px',
-            backgroundColor: isDarkMode ? '#1a3a1a' : '#d4edda',
-            borderRadius: '12px',
-            border: `2px solid ${isDarkMode ? '#2d5a2d' : '#c3e6cb'}`
+            padding: '2rem',
+            backgroundColor: isDarkMode ? 'rgba(56, 161, 105, 0.1)' : 'rgba(56, 161, 105, 0.05)',
+            borderRadius: '16px',
+            border: `2px solid ${isDarkMode ? 'rgba(56, 161, 105, 0.3)' : 'rgba(56, 161, 105, 0.2)'}`,
+            width: '100%',
+            maxWidth: '500px'
           }}>
-            <div style={{ fontWeight: 'bold', marginBottom: '10px', fontSize: '1.3rem' }}>📦 Shipping Information:</div>
-            <div style={{ fontSize: '1.1rem', opacity: 0.8 }}>
-              • Your order will be processed within 24 hours<br/>
-              • Estimated delivery: 3-5 business days<br/>
-              • You will receive tracking information via email
+            <div style={{ fontWeight: 'bold', marginBottom: '1rem', fontSize: '1.3rem', color: '#38a169' }}>📦 Shipping Information:</div>
+            <div style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: '1.6' }}>
+              <div style={{ marginBottom: '0.5rem' }}>• Your order will be processed within 24 hours</div>
+              <div style={{ marginBottom: '0.5rem' }}>• Estimated delivery: 3-5 business days</div>
+              <div style={{ marginBottom: '0.5rem' }}>• You will receive tracking information via email</div>
+              <div style={{ marginBottom: '0.5rem' }}>• Free shipping on orders over $50</div>
             </div>
           </div>
           
-          <div style={{ fontSize: '1.1rem', marginTop: '30px', opacity: 0.7 }}>
+          <div style={{ 
+            fontSize: '1.2rem', 
+            marginTop: '2rem', 
+            opacity: 0.8,
+            fontWeight: '600',
+            color: '#38a169'
+          }}>
             Thank you for your purchase! 🛍️
           </div>
         </div>
       )}
       <div style={testInfoStyle}>
-        Test Card: 4242 4242 4242 4242 / 01 25 / 123
+        <div style={{ fontWeight: '600', marginBottom: '0.5rem' }}>🧪 Test Card Information:</div>
+        <div style={{ fontFamily: 'monospace', fontSize: '1rem' }}>
+          Card: <strong>4242 4242 4242 4242</strong><br/>
+          Expiry: <strong>01/25</strong> | CVC: <strong>123</strong>
+        </div>
       </div>
     </form>
   );
